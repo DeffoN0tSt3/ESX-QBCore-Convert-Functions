@@ -1,0 +1,7 @@
+ESX.Math.Trim()
+ESX.Math.GroupDigits()
+
+-->
+
+QBCore.Shared.Trim()
+QBCore.Shared.GroupDigits()
