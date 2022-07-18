@@ -1,0 +1,9 @@
+--Client
+TriggerClientEvent("QBCore:Notify", "n0tst3", "success", 2500)
+
+TriggerEvent('Notification',"n0tst3")
+
+--Server
+QBCore.Functions.Notify("n0tst3.", "error")
+
+ESX.ShowHelpNotification('n0tst3')
