@@ -1,4 +1,4 @@
----------Clientside functions---------
+-- FiveM ESX TO QB Client Side Functions:
 
 esx:onPlayerDeath -> hospital:server:SetDeathStatus
 
@@ -64,7 +64,7 @@ ESX.Game.Utils.DrawText3D -> QBCore.Functions.DrawText3D
 
 ESX = {} -> local QBCore = exports['qb-core']:GetCoreObject()
 
----------Serverside functions---------
+-- FiveM ESX TO QB Server Side Functions:
 
 QBCore.Functions.ExecuteSql = function(wait, query, cb) 
 
@@ -100,12 +100,13 @@ QBCore.Functions.GetPermission = function(source)
 
 QBCore.Functions.IsPlayerBanned = function (source) 
  
---------- Playerdata:Client Side---------
+-- FiveM ESX TO QB PlayerData Server Side:
 
 local xPlayer = QBCore.Functions.GetPlayerData() <-- Client is automatically the source so no need to specify
 local citizenid = xPlayer.citizenid  <-- See here i do NOT have to put "PlayerData"
 
---------- Playerdata:Server Side---------
+-- FiveM ESX TO QB PlayerData Client Side:
+
 local xPlayer = QBCore.Functions.GetPlayer(source) <-- Have to specify the source
 local citizenid = xPlayer.PlayerData.citizenid  <-- See here i DO have to put "PlayerData"
 
@@ -212,7 +213,10 @@ PlayerData.gang.name -> Returns the player's gang name
 PlayerData.gang.label -> Returns the player's gang label
                    
 PlayerData.position -> Returns the player's position
----------ESX TO QBCore CLIENTSIDE---------
+
+
+-- FiveM ESX TO QB Client Side:
+
 esx:onPlayerDeath -> hospital:server:SetDeathStatus
 esx:playerLoaded -> QBCore:Client:OnPlayerLoaded (use for setting a variable to let the script know the player is ready)
 esx:showAdvancedNotification -> QBCore:Notify
@@ -244,7 +248,9 @@ ESX.Game.SpawnObject -> None (Can use FiveM Native CreateObject)
 ESX.Game.SpawnVehicle -> QBCore.Functions.SpawnVehicle
 ESX.Game.Teleport -> (Can use FiveM Native SetEntityCoords and SetEntityHeading)
 ESX.Game.Utils.DrawText3D -> QBCore.Functions.DrawText3D
----------Serverside---------
+
+--FiveM ESX TO QB Server Side:
+
 ESX.CreatePickup -> None (irrelevant and done through qb-inventory)
 ESX.GetItemLabel -> None (Just returns item label)
 ESX.GetPlayerFromId -> QBCore.Functions.GetPlayer
@@ -256,7 +262,10 @@ ESX.SavePlayer -> QBCore.Player.Save
 ESX.SavePlayers -> None (dont bother)
 ESX.Trace -> Use QBCore.Debug but dont bother converting this
 ESX.UseItem -> QBCore.Functions.UseItem 
-XPLAYER: xPlayer.removeWeaponComponent -> xPlayer.Functions.RemoveItem (component name)
+
+--FiveM ESX TO QB xPlayer:
+ 
+xPlayer.removeWeaponComponent -> xPlayer.Functions.RemoveItem (component name)
 xPlayer.setAccountMoney -> xPlayer.Functions.SetMoney (account)
 xPlayer.setCoords -> None (used for teleporting)
 xPlayer.setInventoryItem -> xPlayer.Functions.AddItem (item name)
@@ -269,7 +278,9 @@ xPlayer.showHelpNotification -> TriggerClientEvent('QBCore:Notify')
 xPlayer.showNotification -> TriggerClientEvent('QBCore:Notify')
 xPlayer.triggerEvent -> None (dont bother)
 xPlayer.updateCoords -> None (dont bother) 
----------Events---------
+
+--FiveM ESX TO QB Events:
+
 esx:getSharedObject -> QBCore:GetObject
 esx:setJob -> QBCore:Client:OnJobUpdate
 esx:onPlayerSpawn -> QBCore:Client:OnPlayerLoaded
