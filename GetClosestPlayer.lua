@@ -1,0 +1,1 @@
+QBCore.Functions.GetClosestPlayer()
