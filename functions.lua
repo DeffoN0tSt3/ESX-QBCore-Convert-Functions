@@ -62,7 +62,7 @@ ESX.Game.Teleport -> (Can use FiveM Native SetEntityCoords and SetEntityHeading)
 
 ESX.Game.Utils.DrawText3D -> QBCore.Functions.DrawText3D
 
-ESX = {} -> QBCore = exports['qb-core']:GetCoreObject()
+ESX = {} -> local QBCore = exports['qb-core']:GetCoreObject()
 
 ---------Serverside functions---------
 
